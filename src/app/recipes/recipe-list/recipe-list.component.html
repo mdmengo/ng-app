@@ -3,15 +3,27 @@
     <button class="btn btn-success">New Recipe</button>
   </div>
 </div>
+<hr>
 <div class="row">
   <div class="list-group">
-    <a href="#" class="list-group-item">
-      <div class="w-100">
-        <h4 class="">Recipe Name</h4>
-        <p class="">Description</p>
-        <span class="">
-          <img src="https://img.bestrecipes.com.au/RCK3slSo/h300-w400-cscale/br-api/asset/20771/super-easy-pizza-dough-recipe.jpg" alt="" class="img-responsive" style="max-height: 50px;">
-        </span>
+    <a
+      href="#"
+      class="list-group-item"
+      *ngFor="let recipe of recipes">
+      <div class="row justify-content-between">
+        <div class="col-auto mr-auto">
+          <h4 class="">{{ recipe.name }}</h4>
+          <p class="mb-0">{{ recipe.description }}</p>
+        </div>
+        <div class="col">
+          <span class="text-right">
+            <img
+            [src]="recipe.imagePath"
+            alt="{{ recipe.name }}"
+            class="img-responsive"
+            style="max-height: 60px;">
+          </span>
+        </div>
       </div>
     </a>
     <app-recipe-item></app-recipe-item>
