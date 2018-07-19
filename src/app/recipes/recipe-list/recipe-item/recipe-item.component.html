@@ -1,7 +1,8 @@
 <a
-  href="#"
+  style="cursor: pointer;"
+  [routerLink]="[index]"
   class="list-group-item"
-  (click)="onSelected()"
+  routerLinkActive="active"
   >
   <div class="row justify-content-between">
     <div class="col-auto mr-auto">
@@ -11,10 +12,10 @@
     <div class="col">
       <span class="text-right">
         <img
-        [src]="recipe.imagePath"
-        alt="{{ recipe.name }}"
-        class="img-responsive"
-        style="max-height: 60px;">
+          [src]="recipe.imagePath"
+          alt="{{ recipe.name }}"
+          class="img-responsive"
+          style="max-height: 60px;">
       </span>
     </div>
   </div>

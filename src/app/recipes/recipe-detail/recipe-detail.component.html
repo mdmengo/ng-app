@@ -28,8 +28,8 @@
       <button class="btn btn-primary" id="dropdownBasic1" ngbDropdownToggle>Manage Recipe</button>
       <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
         <button (click)="onAddToShoppingList()" style="cursor: pointer" class="dropdown-item">Add Ingredients to Shopping List</button>
-        <button class="dropdown-item">Edit Recipe</button>
-        <button class="dropdown-item">Delete Recipe</button>
+        <button class="dropdown-item" style="cursor: pointer" (click)="onEditRecipe()">Edit Recipe</button>
+        <button class="dropdown-item" style="cursor: pointer">Delete Recipe</button>
       </div>
     </div>
   </div>
