@@ -5,7 +5,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
-    <ul class="navbar-nav">
+    <ul class="navbar-nav mr-auto">
       <li class="nav-item">
         <a class="nav-link" routerLinkActive="active" routerLink="/recipes">Recipes <span class="sr-only">(current)</span></a>
       </li>
@@ -24,12 +24,37 @@
         </div>
       </li>
     </ul> -->
-    <div ngbDropdown class="d-inline-block" placement="bottom-right">
-      <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Manage</button>
-      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-        <button class="dropdown-item" style="cursor: pointer" (click)="onSaveData()">Save Data</button>
-        <button class="dropdown-item" style="cursor: pointer" (click)="onFetchData()">Fetch Data Action</button>
-      </div>
-    </div>
+    <!-- <div class="inline-block mr-3">
+      <a routerLink="/signup" class="btn btn-link">Register</a>
+    </div> -->
+    <ul class="navbar-nav">
+      <ng-template [ngIf]="!authService.isAuthenticated()">
+        <li class="nav-item mr-3">
+          <a routerLink="/signup" class="nav-link">Register</a>
+        </li>
+        <li class="nav-item mr-3">
+          <a routerLink="/signin" class="nav-link">Login</a>
+        </li>
+      </ng-template>
+      
+      <li class="nav-item mr-3">
+        <a
+          style="cursor: pointer;"
+          (click)="onLogout()"
+          class="nav-link"
+          *ngIf="authService.isAuthenticated()">Logout</a>
+      </li>
+      
+      <li class="nav-item" *ngIf="authService.isAuthenticated()">
+        <div ngbDropdown class="d-inline-block" placement="bottom-right">
+          <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Manage</button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <button class="dropdown-item" style="cursor: pointer" (click)="onSaveData()">Save Data</button>
+            <button class="dropdown-item" style="cursor: pointer" (click)="onFetchData()">Fetch Data Action</button>
+          </div>
+        </div>
+      </li>
+    </ul>
+    
   </div>
 </nav>
